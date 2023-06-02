@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="background: rgb(123, 20, 220); color: white;width: 80%;padding: 10%;">
+        <div style="text-align: center;">    
+            <h2 style="background: rgb(235, 194, 201);color: black;padding: 1%; border-radius: 10px;font-size: 30px;margin-bottom: 10%; ">Simple Calculator</h2>
+            <input id="input1" value="" style="padding: 10px;border-radius:10px; margin-right:10%;background: rgb(239, 214, 218); color: black; font-size: 20px;text-align: center; ">
+            <span id="symbol" style="color: black; font-size: 40px; width: 20%;"></span>
+            <input id="input2" style="padding: 10px;border-radius:10px; margin-left:10%;background: rgb(239, 214, 218); color: black; font-size: 20px; text-align: center;"><br><br>
+            <span id="answer" style="color: black; font-size: 40px; width: 20%;"></span><br><br><br>
+
+            <div style="margin-left:2%; display: inline-flex; "> 
+                <div>
+                <button onclick="add()" style="background: rgb(239, 214, 218); font-size: 60px; border-radius: 10px; color: black; margin-right:17px; height:100%;">+</button>
+                </div>
+
+                <div>
+                <button onclick='minus()'style="background: rgb(239, 214, 218); font-size: 60px; border-radius: 10px; color: black; margin-right:30px; width: 75%;">-</button>
+                </div>
+
+                <div>
+                <button onclick='multiply()' style="background: rgb(239, 214, 218); font-size: 60px; border-radius: 10px; color: black; margin-right:30px; width: 70%;">*</button>
+                </div>
+
+                <div>
+                <button onclick='divide()' style="background: rgb(239, 218, 230); font-size: 60px; border-radius: 10px; color: black; margin-right:30px; width: 75%;">/</button>
+                </div>
+            </div>
+            
+
+            <script>
+                function add(){
+                let a=Number(document.getElementById('input1').value);
+                let b=Number(document.getElementById('input2').value);
+                let c=a+b
+                document.getElementById('symbol').innerHTML="+"
+                document.getElementById('answer').innerHTML="="+c
+                
+                }
+
+                function minus(){
+                let a=Number(document.getElementById('input1').value);
+                let b=Number(document.getElementById('input2').value);
+                let c=a-b
+                document.getElementById('symbol').innerHTML="-"
+                document.getElementById('answer').innerHTML="="+c
+                
+                }
+
+                function multiply(){
+                let a=Number(document.getElementById('input1').value);
+                let b=Number(document.getElementById('input2').value);
+                let c=a*b
+                document.getElementById('symbol').innerHTML="*"
+                document.getElementById('answer').innerHTML="="+c
+                
+                }
+
+                function divide(){
+                let a=Number(document.getElementById('input1').value);
+                let b=Number(document.getElementById('input2').value);
+                let e=a/b
+                document.getElementById('symbol').innerHTML="/"
+                document.getElementById('answer').innerHTML="="+e
+                
+                }
+            </script>
+        </div> 
+    </div>
+
+</body>
+</html>
