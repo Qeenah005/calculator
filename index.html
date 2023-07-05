@@ -7,6 +7,53 @@
     <title>Document</title>
 </head>
 <body>
+    <h1 onload="qeenah()" id="tunde">Get todays's date and time</h1>
+
+    <div style=" color: black;padding:10%">
+        <h1 style="margin-top: -8%; text-align: center; font-size: 30px; background: rgb(235, 194, 201);color: black;padding: 1%; border-radius: 10px;">GUESS MY NUMBER GAME</h1>
+
+        <h2 class="qeenah" style="font-size: 32px; margin-left: 70px; text-align: center;">
+            Start Guessing......
+        </h2>
+
+        <input class="mynumber" placeholder="guess my number between 1 and 20"
+            style="text-align: center; padding: 5px; width: 400px; font-size: 24px;background:rgb(238, 224, 226) ; margin-left: 35%;">
+
+        <h1 class="number" style="left: 30px; position: relative; text-align: center;">The number is ??</h1>
+
+        <button class="check" style="font-size: 32px; text-align: center; width: 200px; 
+        left: 100px; position: relative;  margin-left: 37%; background: rgb(223, 203, 206);">Check</button>
+
+        <button class="again" style="font-size: 28px; text-align: center; width: 200px; 
+        left: 100px; position: relative; display: none;">PLAY AGAIN</button>
+
+        <h1 class="highestscore" style="width: 500px; margin-left: 4%; padding: 20px; color: black; margin-left: 42%;">Highest Score: <span id="high">0</span></h1>
+    </div> <br><br><br><br>
+
+
+
+    <div style="background: rgb(123, 20, 220); color: black;padding: 10%;">
+        <h2 style="text-align: center; font-size: 40px; margin-top: -10%;background: rgb(235, 194, 201);color: black;padding: 1%; border-radius: 10px;">Investment Calculator</h2>
+        <div style="text-align: center;">
+            <input id="input1" value="" placeholder="How much will you like to Investment" style="padding: 10px;width: 20%; text-align: center;background: rgb(239, 214, 218); color: black;">
+            <select name="" id="input2" style="padding: 10px;width: 10%; text-align: center;background: rgb(239, 214, 218); color: black;">
+                <option value="1">1 year</option>
+                <option value="2">2 years</option>
+                <option value="3">3 years</option>
+                <option value="4">4 years</option>
+                <option value="5">5 years</option>
+                <option value="6">6 years</option>
+                <option value="7">7 years</option>
+                <option value="8">8 years</option>
+                <option value="9">9 years</option>
+                <option value="10">10 years</option>
+                <option value="11">11 years</option>
+                <option value="12">12 years</option>
+            </select>
+            <button id="cal" style="padding: 10px;width: 10%; text-align: center;background: rgb(239, 214, 218); color: black;">Calculate</button>
+            <span id="ans"></span>
+        </div>
+    </div><br><br><br><br><br><br>
     <div style="background: rgb(123, 20, 220); color: white;width: 80%;padding: 10%;">
         <div style="text-align: center;">    
             <h2 style="background: rgb(235, 194, 201);color: black;padding: 1%; border-radius: 10px;font-size: 30px;margin-bottom: 10%; ">Simple Calculator</h2>
@@ -35,6 +82,173 @@
             
 
             <script>
+                function qeenah() {
+    let d = new Date()
+    let Months = [`january`, `feburary`, `march`, `april`, `may`, `june`, `july`, `august`, `septmber`, `october`, `november`, `december`];
+    let ho = d.getHours();
+    let mi = d.getMinutes();
+    let sec = d.getSeconds();
+    let da = d.getDate();
+    if (ho < 10) {
+        ho = `0` + ho;
+    }
+    if (da < 10) {
+        da = `0` + da;
+    }
+    if (mi < 10) {
+        mi = `0` + mi;
+    }
+    if (sec < 10) {
+        sec = `0` + sec;
+    }
+    document.querySelector(`#tunde`).innerHTML = `${Months[d.getMonth()]} 
+    ${da}, ${ho} : ${mi} : ${sec}`
+}
+ let kirah = setInterval(qeenah, 1000)
+
+        let oneday = new Date().getDay();
+        let days=['Sunday','Monday','Tuesday', 'Wednesday','Thursday','Friday','Saturday']
+
+         if(oneday[days]=="0"){
+            alert(`Today is ${days[oneday]} Go to Church`)
+        }
+
+         else if(oneday[days]=="6"){
+            alert(`Today is ${days[oneday]} Go to Party`)
+        }
+
+        else if(oneday[days]=="5"){
+            alert(`Today is ${days[oneday]} Go to Mosque `)
+        }
+        else{
+            alert(`Today is ${days[oneday]} Go to work`)
+        }
+
+
+        if (oneday[days]=="1"){
+            alert(`Today is ${days[oneday]} Go to work`)
+        }
+
+
+
+       let n = prompt('enter any prime number from 1 to 70');
+                if(!n || n<1 || n>70){
+                    alert(`invalid number, enter only a number from 1 to 70`);
+                }
+                 else if(n==2){
+                    alert(`correct ${n} is a prime number`);
+                }
+                else {
+                    let i;
+                    for (i=2; i<n; i++){
+                        if(n%i==0){
+                            alert(`you are wrong, ${n} is not a prime number`);
+                            break;
+                        }
+                    }
+                    if(n==i){
+                        alert(`correct ${n}, is a prime number`);
+                    }
+                }
+
+        let highestscore=document.querySelector('#high').innerHTML;
+        const btn = document.querySelector('.check');
+        btnagain = document.querySelector('.again'); 
+        let myMessage = document.querySelector('.qeenah')
+        let theNumber = document.querySelector('.number');
+        let theBody = document.querySelector('body');      
+        secretNumber = Math.trunc(Math.random() * 20) + 1;
+        let score = 20;
+
+        function scoreline () {
+            score = score - 4;
+            if (score == 0) {
+                myMessage.innerHTML = 'Game Over';
+                btn.style.display='none';
+                btnagain.style.display='inline-block';           
+                btn.style.backgroundColor='red'
+                btn.style.color = 'white';
+                document.querySelector('.mynumber').value = "";
+                theBody.style.backgroundColor = 'red'
+                theNumber.innerHTML=`The Number is ${secretNumber}`;
+            }
+        }
+
+
+
+            let myEngine= function(){
+                let myGuess = Number(document.querySelector('.mynumber').value);
+
+                if(!myGuess || myGuess<1 || myGuess>20){
+                    myMessage.innerHTML='your guess must be between 1 and 20 only';
+                    myMessage.style.color="gold";
+                    document.querySelector('.mynumber').value="";
+                    scoreline();
+                }
+
+                else if(myGuess>secretNumber){
+                    myMessage.innerHTML='your guess is too high';
+                    myMessage.style.color="red";
+                    document.querySelector('.mynumber').value="";
+                    scoreline();
+                }
+
+                else if(myGuess<secretNumber){
+                    myMessage.innerHTML='your guess is too low';
+                    myMessage.style.color="blue";
+                    document.querySelector('.mynumber').value="";
+                    scoreline();
+                }
+
+                else if(myGuess==secretNumber){
+                    myMessage.innerHTML=`correct, the number is ${secretNumber}`;
+                    myMessage.style.color="yellow";
+                    theBody.style.backgroundColor="green";
+                    theBody.style.color="white";
+                    theNumber.innerHTML=`SCORE: ${score}`;
+                    theNumber.style.color='yellow';
+                    document.querySelector('.mynumber').value="";
+                    btn.style.display='none'
+                    btnagain.style.display='inline-block';
+                    document.querySelector('.mynumber').value='';
+
+                    if(highestscore<score){
+                        document.querySelector('#high').innerHTML=score;
+                    }
+                }
+
+
+            }
+
+            console.log(secretNumber)
+        btn. addEventListener('click',myEngine);
+        btnagain.addEventListener('click', function(){
+            myMessage.innerHTML='Start guessing......';
+            myMessage.style.color='black';
+            btn.style.display="inline-block"
+            btnagain.style.display="none"
+            btn.style.backgroundColor="white"
+            btn.style.color="black"
+            document.querySelector('.mynumber').value='';
+            theBody.style.backgroundColor='white';
+            theNumber.innerHTML=`The number is ??`;
+            score=20;
+            secretNumber=Math.trunc(Math.random()*20)+1;
+            theNumber.style.color='black';
+        })
+                
+         document.getElementById('cal').addEventListener('click',
+                    function () {
+                        let Investment = document.getElementById('input1').value;
+                        let duration = document.getElementById('input2').value;
+                        let profit = 0.1 * Investment;
+                        let withdraw = Number(profit*duration) + Number(Investment);
+                        document.getElementById('ans').innerHTML = withdraw
+                        alert(withdraw)
+                    }
+                );
+
+                
                 function add(){
                 let a=Number(document.getElementById('input1').value);
                 let b=Number(document.getElementById('input2').value);
